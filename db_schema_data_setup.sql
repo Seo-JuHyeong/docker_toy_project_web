@@ -4,14 +4,7 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
--- -----------------------------------------------------
--- Schema CAR_DEALER
--- -----------------------------------------------------
 
--- -----------------------------------------------------
--- Schema CAR_DEALER
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `CAR_DEALER` DEFAULT CHARACTER SET utf8 ;
 -- -----------------------------------------------------
 -- Schema car_dealer
 -- -----------------------------------------------------
@@ -20,12 +13,12 @@ CREATE SCHEMA IF NOT EXISTS `CAR_DEALER` DEFAULT CHARACTER SET utf8 ;
 -- Schema car_dealer
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `car_dealer` DEFAULT CHARACTER SET utf8mb3 ;
-USE `CAR_DEALER` ;
+USE `car_dealer` ;
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`VEHICLE`
+-- Table `car_dealer`.`VEHICLE`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`VEHICLE` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`VEHICLE` (
   `Vin` VARCHAR(30) NOT NULL,
   `Year` VARCHAR(30) NOT NULL,
   `Price` VARCHAR(30) NOT NULL,
@@ -40,9 +33,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`USER`
+-- Table `car_dealer`.`USER`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`USER` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`USER` (
   `ID` VARCHAR(30) NOT NULL,
   `Password` VARCHAR(30) NOT NULL,
   `Role` VARCHAR(30) NOT NULL,
@@ -52,24 +45,24 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`SALESPERSON`
+-- Table `car_dealer`.`SALESPERSON`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`SALESPERSON` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`SALESPERSON` (
   `Sid` VARCHAR(30) NOT NULL,
   `Name` VARCHAR(30) NOT NULL,
   UNIQUE INDEX `Sid_UNIQUE` (`Sid` ASC),
   CONSTRAINT `fk_SALESPERSON_USER1`
     FOREIGN KEY (`Sid`)
-    REFERENCES `CAR_DEALER`.`USER` (`ID`)
+    REFERENCES `car_dealer`.`USER` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`CUSTOMER`
+-- Table `car_dealer`.`CUSTOMER`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`CUSTOMER` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`CUSTOMER` (
   `Ssn` VARCHAR(30) NOT NULL,
   `Name` VARCHAR(30) NOT NULL,
   `City` VARCHAR(30) NOT NULL,
@@ -77,32 +70,32 @@ CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`CUSTOMER` (
   UNIQUE INDEX `Ssn_UNIQUE` (`Ssn` ASC),
   CONSTRAINT `fk_CUSTOMER_USER1`
     FOREIGN KEY (`Ssn`)
-    REFERENCES `CAR_DEALER`.`USER` (`ID`)
+    REFERENCES `car_dealer`.`USER` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`BOAT`
+-- Table `car_dealer`.`BOAT`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`BOAT` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`BOAT` (
   `Vin` VARCHAR(30) NOT NULL,
   `Purpose` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_BOAT_VEHICLE_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_BOAT_VEHICLE`
     FOREIGN KEY (`Vin`)
-    REFERENCES `CAR_DEALER`.`VEHICLE` (`Vin`)
+    REFERENCES `car_dealer`.`VEHICLE` (`Vin`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`CAR`
+-- Table `car_dealer`.`CAR`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`CAR` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`CAR` (
   `Vin` VARCHAR(30) NOT NULL,
   `Plate_number` VARCHAR(30) NOT NULL,
   `Mileage` VARCHAR(30) NOT NULL,
@@ -111,96 +104,96 @@ CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`CAR` (
   INDEX `fk_CAR_VEHICLE1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_CAR_VEHICLE1`
     FOREIGN KEY (`Vin`)
-    REFERENCES `CAR_DEALER`.`VEHICLE` (`Vin`)
+    REFERENCES `car_dealer`.`VEHICLE` (`Vin`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`MOTORCYCLE`
+-- Table `car_dealer`.`MOTORCYCLE`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`MOTORCYCLE` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`MOTORCYCLE` (
   `Vin` VARCHAR(30) NOT NULL,
   `Displacement` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_MOTORCYCLE_VEHICLE1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_MOTORCYCLE_VEHICLE1`
     FOREIGN KEY (`Vin`)
-    REFERENCES `CAR_DEALER`.`VEHICLE` (`Vin`)
+    REFERENCES `car_dealer`.`VEHICLE` (`Vin`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`SEDAN`
+-- Table `car_dealer`.`SEDAN`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`SEDAN` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`SEDAN` (
   `Vin` VARCHAR(30) NOT NULL,
   `Engine_size` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_SEDAN_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_SEDAN_CAR1`
     FOREIGN KEY (`Vin`)
-    REFERENCES `CAR_DEALER`.`CAR` (`Vin`)
+    REFERENCES `car_dealer`.`CAR` (`Vin`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`SUV`
+-- Table `car_dealer`.`SUV`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`SUV` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`SUV` (
   `Vin` VARCHAR(30) NOT NULL,
   `Size_grade` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_SUV_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_SUV_CAR1`
     FOREIGN KEY (`Vin`)
-    REFERENCES `CAR_DEALER`.`CAR` (`Vin`)
+    REFERENCES `car_dealer`.`CAR` (`Vin`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`TRUCK`
+-- Table `car_dealer`.`TRUCK`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`TRUCK` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`TRUCK` (
   `Vin` VARCHAR(30) NOT NULL,
   `Tonnage` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_TRUCK_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_TRUCK_CAR1`
     FOREIGN KEY (`Vin`)
-    REFERENCES `CAR_DEALER`.`CAR` (`Vin`)
+    REFERENCES `car_dealer`.`CAR` (`Vin`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`VAN`
+-- Table `car_dealer`.`VAN`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`VAN` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`VAN` (
   `Vin` VARCHAR(30) NOT NULL,
   `Purpose` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_VAN_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_VAN_CAR1`
     FOREIGN KEY (`Vin`)
-    REFERENCES `CAR_DEALER`.`CAR` (`Vin`)
+    REFERENCES `car_dealer`.`CAR` (`Vin`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`RESERVATION`
+-- Table `car_dealer`.`RESERVATION`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`RESERVATION` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`RESERVATION` (
   `Vin` VARCHAR(30) NOT NULL,
   `Ssn` VARCHAR(30) NOT NULL,
   `Date` DATE NOT NULL,
@@ -208,21 +201,21 @@ CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`RESERVATION` (
   PRIMARY KEY (`Vin`, `Ssn`),
   CONSTRAINT `fk_RESERVATION_VEHICLE1`
     FOREIGN KEY (`Vin`)
-    REFERENCES `CAR_DEALER`.`VEHICLE` (`Vin`)
+    REFERENCES `car_dealer`.`VEHICLE` (`Vin`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_RESERVATION_CUSTOMER1`
     FOREIGN KEY (`Ssn`)
-    REFERENCES `CAR_DEALER`.`CUSTOMER` (`Ssn`)
+    REFERENCES `car_dealer`.`CUSTOMER` (`Ssn`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CAR_DEALER`.`SALE`
+-- Table `car_dealer`.`SALE`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`SALE` (
+CREATE TABLE IF NOT EXISTS `car_dealer`.`SALE` (
   `Vin` VARCHAR(30) NOT NULL,
   `Sid` VARCHAR(30) NOT NULL,
   `Ssn` VARCHAR(30) NOT NULL,
@@ -231,12 +224,12 @@ CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`SALE` (
   PRIMARY KEY (`Vin`),
   CONSTRAINT `fk_SALE_SALESPERSON1`
     FOREIGN KEY (`Sid`)
-    REFERENCES `CAR_DEALER`.`SALESPERSON` (`Sid`)
+    REFERENCES `car_dealer`.`SALESPERSON` (`Sid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_SALE_RESERVATION1`
     FOREIGN KEY (`Vin` , `Ssn`)
-    REFERENCES `CAR_DEALER`.`RESERVATION` (`Vin` , `Ssn`)
+    REFERENCES `car_dealer`.`RESERVATION` (`Vin` , `Ssn`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
