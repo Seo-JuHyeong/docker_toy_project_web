@@ -1,0 +1,36 @@
+{
+  "name": "week10",
+  "version": "1.0.0",
+  "description": "<br>\r <br>",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node ./src/index.js -e js,hbs,css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-livereload": "^0.6.1",
+    "cookie-parser": "^1.4.6",
+    "deepmerge": "^4.2.2",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "hbs": "^4.1.2",
+    "livereload": "^0.9.3",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/node": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "nodemon": "^2.0.20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seo-JuHyeong/Database-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Seo-JuHyeong/Database-project/issues"
+  },
+  "homepage": "https://github.com/Seo-JuHyeong/Database-project#readme"
+}
