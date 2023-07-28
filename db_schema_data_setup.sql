@@ -253,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`vehicle` (
   `Fuel` VARCHAR(30) NOT NULL,
   `Seater` VARCHAR(30) NOT NULL,
   `Model` VARCHAR(30) NOT NULL,
-  `Color` VARCHAR(30)) NOT NULL,
+  `Color` VARCHAR(30) NOT NULL,
   `Manufacturer` VARCHAR(30) NOT NULL,
   `Vtype` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`))
