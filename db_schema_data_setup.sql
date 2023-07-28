@@ -26,15 +26,15 @@ USE `CAR_DEALER` ;
 -- Table `CAR_DEALER`.`VEHICLE`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`VEHICLE` (
-  `Vin` CHAR(17) NOT NULL,
-  `Year` CHAR(5) NOT NULL,
-  `Price` VARCHAR(7) NOT NULL,
-  `Fuel` VARCHAR(6) NOT NULL,
-  `Seater` VARCHAR(6) NOT NULL,
-  `Model` VARCHAR(10) NOT NULL,
-  `Color` VARCHAR(10) NOT NULL,
-  `Manufacturer` VARCHAR(10) NOT NULL,
-  `Vtype` VARCHAR(10) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Year` VARCHAR(30) NOT NULL,
+  `Price` VARCHAR(30) NOT NULL,
+  `Fuel` VARCHAR(30) NOT NULL,
+  `Seater` VARCHAR(30) NOT NULL,
+  `Model` VARCHAR(30) NOT NULL,
+  `Color` VARCHAR(30) NOT NULL,
+  `Manufacturer` VARCHAR(30) NOT NULL,
+  `Vtype` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`))
 ENGINE = InnoDB;
 
@@ -43,9 +43,9 @@ ENGINE = InnoDB;
 -- Table `CAR_DEALER`.`USER`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`USER` (
-  `ID` CHAR(8) NOT NULL,
-  `Password` VARCHAR(15) NOT NULL,
-  `Role` VARCHAR(6) NOT NULL,
+  `ID` VARCHAR(30) NOT NULL,
+  `Password` VARCHAR(30) NOT NULL,
+  `Role` VARCHAR(30) NOT NULL,
   UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
@@ -55,8 +55,8 @@ ENGINE = InnoDB;
 -- Table `CAR_DEALER`.`SALESPERSON`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`SALESPERSON` (
-  `Sid` CHAR(8) NOT NULL,
-  `Name` VARCHAR(10) NOT NULL,
+  `Sid` VARCHAR(30) NOT NULL,
+  `Name` VARCHAR(30) NOT NULL,
   UNIQUE INDEX `Sid_UNIQUE` (`Sid` ASC),
   CONSTRAINT `fk_SALESPERSON_USER1`
     FOREIGN KEY (`Sid`)
@@ -70,10 +70,10 @@ ENGINE = InnoDB;
 -- Table `CAR_DEALER`.`CUSTOMER`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`CUSTOMER` (
-  `Ssn` CHAR(8) NOT NULL,
-  `Name` VARCHAR(10) NOT NULL,
-  `City` VARCHAR(10) NOT NULL,
-  `Town` VARCHAR(8) NOT NULL,
+  `Ssn` VARCHAR(30) NOT NULL,
+  `Name` VARCHAR(30) NOT NULL,
+  `City` VARCHAR(30) NOT NULL,
+  `Town` VARCHAR(30) NOT NULL,
   UNIQUE INDEX `Ssn_UNIQUE` (`Ssn` ASC),
   CONSTRAINT `fk_CUSTOMER_USER1`
     FOREIGN KEY (`Ssn`)
@@ -87,8 +87,8 @@ ENGINE = InnoDB;
 -- Table `CAR_DEALER`.`BOAT`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`BOAT` (
-  `Vin` CHAR(17) NOT NULL,
-  `Purpose` VARCHAR(15) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Purpose` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_BOAT_VEHICLE_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_BOAT_VEHICLE`
@@ -103,10 +103,10 @@ ENGINE = InnoDB;
 -- Table `CAR_DEALER`.`CAR`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`CAR` (
-  `Vin` CHAR(17) NOT NULL,
-  `Plate_number` VARCHAR(9) NOT NULL,
-  `Mileage` VARCHAR(8) NOT NULL,
-  `Ctype` VARCHAR(5) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Plate_number` VARCHAR(30) NOT NULL,
+  `Mileage` VARCHAR(30) NOT NULL,
+  `Ctype` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_CAR_VEHICLE1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_CAR_VEHICLE1`
@@ -121,8 +121,8 @@ ENGINE = InnoDB;
 -- Table `CAR_DEALER`.`MOTORCYCLE`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`MOTORCYCLE` (
-  `Vin` CHAR(17) NOT NULL,
-  `Displacement` VARCHAR(6) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Displacement` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_MOTORCYCLE_VEHICLE1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_MOTORCYCLE_VEHICLE1`
@@ -137,8 +137,8 @@ ENGINE = InnoDB;
 -- Table `CAR_DEALER`.`SEDAN`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`SEDAN` (
-  `Vin` CHAR(17) NOT NULL,
-  `Engine_size` VARCHAR(6) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Engine_size` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_SEDAN_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_SEDAN_CAR1`
@@ -153,8 +153,8 @@ ENGINE = InnoDB;
 -- Table `CAR_DEALER`.`SUV`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`SUV` (
-  `Vin` CHAR(17) NOT NULL,
-  `Size_grade` VARCHAR(5) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Size_grade` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_SUV_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_SUV_CAR1`
@@ -169,8 +169,8 @@ ENGINE = InnoDB;
 -- Table `CAR_DEALER`.`TRUCK`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`TRUCK` (
-  `Vin` CHAR(17) NOT NULL,
-  `Tonnage` VARCHAR(5) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Tonnage` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_TRUCK_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_TRUCK_CAR1`
@@ -185,8 +185,8 @@ ENGINE = InnoDB;
 -- Table `CAR_DEALER`.`VAN`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`VAN` (
-  `Vin` CHAR(17) NOT NULL,
-  `Purpose` VARCHAR(10) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Purpose` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_VAN_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_VAN_CAR1`
@@ -201,8 +201,8 @@ ENGINE = InnoDB;
 -- Table `CAR_DEALER`.`RESERVATION`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`RESERVATION` (
-  `Vin` CHAR(17) NOT NULL,
-  `Ssn` CHAR(8) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Ssn` VARCHAR(30) NOT NULL,
   `Date` DATE NOT NULL,
   INDEX `fk_RESERVATION_VEHICLE1_idx` (`Vin` ASC) VISIBLE,
   PRIMARY KEY (`Vin`, `Ssn`),
@@ -223,9 +223,9 @@ ENGINE = InnoDB;
 -- Table `CAR_DEALER`.`SALE`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CAR_DEALER`.`SALE` (
-  `Vin` CHAR(17) NOT NULL,
-  `Sid` CHAR(8) NOT NULL,
-  `Ssn` CHAR(8) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Sid` VARCHAR(30) NOT NULL,
+  `Ssn` VARCHAR(30) NOT NULL,
   `Date` DATE NOT NULL,
   INDEX `fk_SALE_RESERVATION1_idx` (`Vin` ASC, `Ssn` ASC) VISIBLE,
   PRIMARY KEY (`Vin`),
@@ -247,15 +247,15 @@ USE `car_dealer` ;
 -- Table `car_dealer`.`vehicle`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`vehicle` (
-  `Vin` VARCHAR(20) NOT NULL,
-  `Year` CHAR(5) NOT NULL,
-  `Price` VARCHAR(7) NOT NULL,
-  `Fuel` VARCHAR(6) NOT NULL,
-  `Seater` VARCHAR(6) NOT NULL,
-  `Model` VARCHAR(10) NOT NULL,
-  `Color` VARCHAR(10) NOT NULL,
-  `Manufacturer` VARCHAR(10) NOT NULL,
-  `Vtype` VARCHAR(10) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Year` VARCHAR(30) NOT NULL,
+  `Price` VARCHAR(30) NOT NULL,
+  `Fuel` VARCHAR(30) NOT NULL,
+  `Seater` VARCHAR(30) NOT NULL,
+  `Model` VARCHAR(30) NOT NULL,
+  `Color` VARCHAR(30)) NOT NULL,
+  `Manufacturer` VARCHAR(30) NOT NULL,
+  `Vtype` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
@@ -265,8 +265,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`boat`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`boat` (
-  `Vin` VARCHAR(20) NOT NULL,
-  `Purpose` VARCHAR(15) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Purpose` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_BOAT_VEHICLE_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_BOAT_VEHICLE`
@@ -280,10 +280,10 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`car`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`car` (
-  `Vin` VARCHAR(20) NOT NULL,
-  `Plate_number` VARCHAR(9) NOT NULL,
-  `Mileage` VARCHAR(8) NOT NULL,
-  `Ctype` VARCHAR(5) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Plate_number` VARCHAR(30) NOT NULL,
+  `Mileage` VARCHAR(30) NOT NULL,
+  `Ctype` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_CAR_VEHICLE1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_CAR_VEHICLE1`
@@ -297,10 +297,10 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`customer`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`customer` (
-  `Ssn` CHAR(8) NOT NULL,
-  `Name` VARCHAR(10) NOT NULL,
-  `City` VARCHAR(10) NOT NULL,
-  `Town` VARCHAR(8) NOT NULL,
+  `Ssn` VARCHAR(30) NOT NULL,
+  `Name` VARCHAR(30) NOT NULL,
+  `City` VARCHAR(30) NOT NULL,
+  `Town` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Ssn`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
@@ -310,8 +310,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`motorcycle`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`motorcycle` (
-  `Vin` VARCHAR(20) NOT NULL,
-  `Displacement` VARCHAR(6) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Displacement` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_MOTORCYCLE_VEHICLE1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_MOTORCYCLE_VEHICLE1`
@@ -325,8 +325,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`reservation`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`reservation` (
-  `Vin` VARCHAR(20) NOT NULL,
-  `Ssn` CHAR(8) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Ssn` VARCHAR(30) NOT NULL,
   `Date` DATE NOT NULL,
   PRIMARY KEY (`Ssn`),
   UNIQUE INDEX `Vin_UNIQUE` (`Vin` ASC) VISIBLE,
@@ -346,8 +346,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`salesperson`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`salesperson` (
-  `Sid` CHAR(8) NOT NULL,
-  `Name` VARCHAR(10) NOT NULL,
+  `Sid` VARCHAR(30) NOT NULL,
+  `Name` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Sid`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
@@ -357,9 +357,9 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`sale`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`sale` (
-  `Vin` VARCHAR(20) NOT NULL,
-  `Sid` CHAR(8) NOT NULL,
-  `Ssn` CHAR(8) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Sid` VARCHAR(30) NOT NULL,
+  `Ssn` VARCHAR(30) NOT NULL,
   `Date` DATE NOT NULL,
   UNIQUE INDEX `Vin_UNIQUE` (`Vin` ASC) VISIBLE,
   UNIQUE INDEX `Sid_UNIQUE` (`Sid` ASC) VISIBLE,
@@ -379,8 +379,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`sedan`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`sedan` (
-  `Vin` VARCHAR(20) NOT NULL,
-  `Engin_size` VARCHAR(6) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Engin_size` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_SEDAN_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_SEDAN_CAR1`
@@ -394,8 +394,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`suv`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`suv` (
-  `Vin` VARCHAR(20) NOT NULL,
-  `Size_grade` VARCHAR(5) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Size_grade` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_SUV_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_SUV_CAR1`
@@ -409,8 +409,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`train`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`train` (
-  `Vin` VARCHAR(20) NOT NULL,
-  `Speed` VARCHAR(7) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Speed` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_TRAIN_VEHICLE1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_TRAIN_VEHICLE1`
@@ -424,8 +424,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`truck`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`truck` (
-  `Vin` VARCHAR(20) NOT NULL,
-  `Tonnage` VARCHAR(5) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Tonnage` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_TRUCK_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_TRUCK_CAR1`
@@ -439,9 +439,9 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`user` (
-  `ID` CHAR(8) NOT NULL,
-  `Password` VARCHAR(15) NOT NULL,
-  `Role` VARCHAR(6) NOT NULL,
+  `ID` VARCHAR(30) NOT NULL,
+  `Password` VARCHAR(30) NOT NULL,
+  `Role` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE)
 ENGINE = InnoDB
@@ -452,8 +452,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `car_dealer`.`van`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`van` (
-  `Vin` VARCHAR(20) NOT NULL,
-  `Purpose` VARCHAR(10) NOT NULL,
+  `Vin` VARCHAR(30) NOT NULL,
+  `Purpose` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_VAN_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_VAN_CAR1`
