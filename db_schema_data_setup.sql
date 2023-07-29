@@ -298,7 +298,6 @@ insert into salesperson values ("22222222", "이유진");
 insert into customer values ("12181784", "서주형", "인천광역시", "동구");
 insert into customer values ("24222422", "정라현", "서울특별시", "강서구");
 
-insert into reservation values ("KHHC4C1HMBP000001", "12181784", "2022-12-17");
 insert into reservation values ("KKKQ9V7SJRT000002", "24222422", "2022-12-18");
 
 insert into sale values ("KHHC4C1HMBP000001", "11111111", "12181784", "2022-12-17");
