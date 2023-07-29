@@ -12,7 +12,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema car_dealer
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `car_dealer` DEFAULT CHARACTER SET utf8mb3 ;
+CREATE SCHEMA IF NOT EXISTS `car_dealer` DEFAULT CHARACTER SET utf8mb4;
 USE `car_dealer` ;
 
 -- -----------------------------------------------------
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`vehicle` (
   `Vtype` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`boat` (
     FOREIGN KEY (`Vin`)
     REFERENCES `car_dealer`.`vehicle` (`Vin`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`car` (
     FOREIGN KEY (`Vin`)
     REFERENCES `car_dealer`.`vehicle` (`Vin`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`customer` (
   `Town` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Ssn`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`motorcycle` (
     FOREIGN KEY (`Vin`)
     REFERENCES `car_dealer`.`vehicle` (`Vin`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`reservation` (
     FOREIGN KEY (`Vin`)
     REFERENCES `car_dealer`.`vehicle` (`Vin`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`salesperson` (
   `Name` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Sid`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -144,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`sale` (
     FOREIGN KEY (`Sid`)
     REFERENCES `car_dealer`.`salesperson` (`Sid`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`sedan` (
     FOREIGN KEY (`Vin`)
     REFERENCES `car_dealer`.`car` (`Vin`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`suv` (
     FOREIGN KEY (`Vin`)
     REFERENCES `car_dealer`.`car` (`Vin`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`train` (
     FOREIGN KEY (`Vin`)
     REFERENCES `car_dealer`.`vehicle` (`Vin`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`truck` (
     FOREIGN KEY (`Vin`)
     REFERENCES `car_dealer`.`car` (`Vin`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -217,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`user` (
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -232,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `car_dealer`.`van` (
     FOREIGN KEY (`Vin`)
     REFERENCES `car_dealer`.`car` (`Vin`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
