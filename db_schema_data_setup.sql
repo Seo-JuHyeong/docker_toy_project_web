@@ -300,4 +300,3 @@ insert into customer values ("24222422", "정라현", "서울특별시", "강서
 
 insert into reservation values ("KKKQ9V7SJRT000002", "24222422", "2022-12-18");
 
-insert into sale values ("KHHC4C1HMBP000001", "11111111", "12181784", "2022-12-17");

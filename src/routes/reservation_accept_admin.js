@@ -48,7 +48,7 @@ router.post('/', async (req, res) => { // 구매 예약 차량 거래 승인 버
     console.log(data)
     
     await insertSql.insertSale(data); // 입력된 정보로 Sale table에 등록
-    await deleteSql.deleteReservation(data.Vin)
+    
     res.send("<script>alert('거래가 승인되었습니다.'); location.href='/reservation_accept_admin';</script>"); 
 });
 
