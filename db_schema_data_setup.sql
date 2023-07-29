@@ -152,7 +152,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `car_dealer`.`sedan` (
   `Vin` VARCHAR(30) NOT NULL,
-  `Engin_size` VARCHAR(30) NOT NULL,
+  `Engine_size` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`Vin`),
   INDEX `fk_SEDAN_CAR1_idx` (`Vin` ASC) VISIBLE,
   CONSTRAINT `fk_SEDAN_CAR1`
