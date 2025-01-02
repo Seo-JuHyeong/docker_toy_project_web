@@ -5,7 +5,7 @@ const pool = mysql.createPool(process.env.JAWSDB_URL ?? {
     host: 'db',
     user: 'root',
     database: 'car_dealer',
-    password: '730216hj',
+    password: '*******',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
